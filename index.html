@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="style2.css">
+    
+    <title>Calculadora</title>
+</head>
+<body>
+    
+    <div id="maincenter">
+        <div id="center">
+            
+            <div id="box">
+                
+                <div id="exres">
+                    <h1>Calculadora</h1>
+                    <div id="textfield">
+                        <input type="number" name="firstnum" id="firstnum" placeholder="Number" max="99999999" min="0">
+                        <input type="number" name="secondnum" id="secondnum" placeholder="Number" max="99999999" min="0">
+                    </div>
+                    <div id="buttons">
+                        <span id="buttonbox">
+                            <input type="button" value="Somar" id="button" onclick="soma()">
+                        </span>
+                        <span id="btnsub">
+                            <input type="button" value="Subtrair" id="button" onclick="subtrair()">
+                        </span>
+                    </div>
+                    
+                </div>
+            <div id="finalbox">
+                <div id="box-rescerto">
+                    <span id="answer">
+                        <p id="resposta-text">Resultado: </p>
+                    </span>
+                    
+                    <span id="result">
+                        <p id="resultado"></p>
+                    </span>
+                </div> 
+            </div>
+                 
+                
+            </div>
+        </div>
+        <div id="right">
+           
+        </div>
+    </div>
+    <script>
+            // ---------------------- Variaveis declaradas ------------------
+                var firstnum  = document.getElementById('firstnum')
+                var secondnum  = document.getElementById('secondnum')
+                var resposta = document.getElementById('resultado')
+                
+
+            // ---------------------- Animations ------------------
+            function resetOpacity(){
+                setTimeout(function ResetMassa()
+                {
+                    resultado.style.opacity = '0'
+                },100)
+                 
+            }
+            
+            function opacidade(){
+                setTimeout(function daCertopfv(){
+                    resultado.style.opacity = '1'
+                },400)
+            }
+            
+            // ---------------------- Soma ------------------
+           
+        function soma(){
+            
+            resetOpacity()
+            var valor1 = Number(firstnum.value)
+            var valor2 = Number(secondnum.value)
+            
+            var valorfinal = valor1 + valor2
+            
+            console.log(valorfinal)
+            
+            if(valor1 < 0|| valor2 < 0 || valor1 > 99999999 || valor2 > 99999999){
+                resposta.innerHTML = ("Valor inválido")
+            }else{
+                resposta.innerHTML = (`<br>${valorfinal}`)
+            }
+            opacidade()
+         }
+         // ---------------------- Subtração ------------------
+
+         function subtrair(){
+           
+            
+            resetOpacity()
+            var valor1 = Number(firstnum.value)
+            var valor2 = Number(secondnum.value)
+            
+            var valorfinal = valor1 - valor2
+            
+            console.log(valorfinal)
+            
+            if(valor1 < 0|| valor2 < 0 || valor1 > 99999999 || valor2 > 99999999){
+                resposta.innerHTML = ("Valor inválido")
+            }else{
+                resposta.innerHTML = (`<br>${valorfinal}`)
+            }
+            opacidade()
+        }
+         // ---------------------- ScrollReveal ------------------
+         const sr = ScrollReveal({
+            origin: 'top',
+            delay: 400,
+            distance: '60px',
+            duration: 1600,
+         })
+         sr.reveal('#box')
+         sr.reveal('#box-rescerto', {origin: 'bottom'})
+         sr.reveal('#buttons', {duration: 1900})
+         sr.reveal('#buttons', {duration: 2100})
+         sr.reveal('#result')
+      
+    </script>
+</body>
+</html>
